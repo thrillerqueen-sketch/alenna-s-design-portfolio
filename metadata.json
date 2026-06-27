@@ -1,0 +1,8 @@
+{
+  "name": "Alenna Portfolio",
+  "description": "A stylish, lightweight portfolio for a Graphic and UI/UX Designer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

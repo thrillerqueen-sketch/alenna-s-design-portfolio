@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .animate-shimmer {
+    animation: shimmer 60s infinite;
+    background-size: 200% auto;
+  }
+}
+
+@keyframes shimmer {
+  0%, 93% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
