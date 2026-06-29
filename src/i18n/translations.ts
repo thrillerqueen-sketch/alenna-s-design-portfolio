@@ -8,8 +8,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'nav.contact': 'Contact',
 
     // Hero
-    'hero.available': 'Available for freelance work',
-    'hero.tagline': 'Crafting digital experiences and visual identities that are lightweight, stylish, and anything but boring.',
+    'hero.available': 'Available for work',
+    'hero.tagline': 'I’m Alenna, a UX/UI/Product and Graphic designer. Creating solutions is what I truly love doing. Good design just feels good. Also, I know the pieces fit ;)',
     'hero.scroll': 'Scroll to explore • Scroll to explore • ',
 
     // Portfolio
@@ -28,12 +28,15 @@ export const translations: Record<Language, Record<string, string>> = {
     'detail.back_portfolio': 'Back to portfolio',
 
     // About
-    'about.title': 'Not just making it pretty. Making it work.',
-    'about.subtitle': 'Blending aesthetics with user-centric functionality. With a background spanning robust graphic design and deep UI/UX systems.',
+    'about.title': 'I know the pieces fit.',
+    'about.subtitle': 'Any problem for me is like a literal puzzle. Solving it is definitely satisfying. Especially design problems. ',
     'about.uiux_title': 'UI/UX Design',
-    'about.uiux_desc': 'Wireframing, prototyping, and crafting seamless digital interfaces that users actually enjoy navigating.',
+    'about.uiux_desc': 'Wireframing, prototyping, and crafting seamless digital interfaces that users actually enjoy navigating. Mobile, web and beyond.',
     'about.graphic_title': 'Graphic Design',
-    'about.graphic_desc': 'Brand identities, typography systems, and editorial layouts that leave a lasting visual impact across all mediums.',
+    'about.graphic_desc': 'Brand identities, typography systems, and editorial layouts that do what they are supposed to do and look great.',
+    'about.resume_cta': 'Request a Resume',
+    'about.resume_title': 'Request a Resume',
+    'about.resume_note': 'Send me a message and I\'ll share my resume with you.',
 
     // Contact
     'contact.title': "Let's build something\n",
@@ -62,7 +65,10 @@ export const translations: Record<Language, Record<string, string>> = {
     'nav.about': 'Обо мне',
     'nav.contact': 'Контакты',
 
-    // Hero — stays in English per request
+    // Hero
+    'hero.available': 'Открыта к cотрудничеству',
+    'hero.tagline': 'Я - Алёна, UX/UI/Product и графический дизайнер. Люблю решать задачи. Когда дизайн хороший, то и на душе приятно, и бизнес на высоте. And I know the pieces fit ;)',
+    'hero.scroll': 'Листайте чтобы увидеть больше • Листайте чтобы увидеть больше • ',
 
     // Portfolio
     'work.title': 'Избранные\nпроекты',
@@ -80,16 +86,19 @@ export const translations: Record<Language, Record<string, string>> = {
     'detail.back_portfolio': 'Назад к портфолио',
 
     // About
-    'about.title': 'Не просто красиво. Работает.',
-    'about.subtitle': 'Сочетание эстетики и пользовательского опыта. Опыт в графическом дизайне и глубоких UI/UX-системах.',
+    'about.title': 'Знаю, что всё сложится',
+    'about.subtitle': 'Любая задача для меня — как пазл. Решать её — настоящее удовольствие. Особенно если это дизайн-задача.',
     'about.uiux_title': 'UI/UX Дизайн',
-    'about.uiux_desc': 'Вайрфреймы, прототипирование и создание удобных цифровых интерфейсов, которыми приятно пользоваться.',
+    'about.uiux_desc': 'Вайрфреймы, прототипирование и создание удобных цифровых интерфейсов, которыми приятно пользоваться. Мобильные приложения, веб-сайты и всё, что душе угодно.',
     'about.graphic_title': 'Графический дизайн',
-    'about.graphic_desc': 'Фирменные стили, типографика и редакционные макеты, оставляющие яркое визуальное впечатление.',
+    'about.graphic_desc': 'Фирменный стиль, типографика и печатные макеты, которые помогают достичь поставленных целей и выглядят приятно.',
+    'about.resume_cta': 'Запросить резюме',
+    'about.resume_title': 'Запросить резюме',
+    'about.resume_note': 'Напишите мне, и я поделюсь своим резюме.',
 
     // Contact
-    'contact.title': 'Давайте создадим\n',
-    'contact.title_accent': 'нечто особенное.',
+    'contact.title': 'Давайте создадим полезную\n',
+    'contact.title_accent': 'красоту.',
     'contact.email': 'Написать',
     'contact.telegram': 'Telegram',
     'contact.footer': 'Все права защищены.',

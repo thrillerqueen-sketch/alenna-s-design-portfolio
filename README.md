@@ -1,20 +1,66 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Alenna — Graphic & UI/UX Design Portfolio
 
-# Run and deploy your AI Studio app
+A stylish, responsive portfolio website built with React, TypeScript, Tailwind CSS, and Vite.
 
-This contains everything you need to run your app locally.
+## Live Site
 
-View your app in AI Studio: https://ai.studio/apps/3e4141cb-d0bd-4b58-942b-370bfce69bce
+🌐 [thrillerqueen-sketch.github.io/alenna-s-design-portfolio](https://thrillerqueen-sketch.github.io/alenna-s-design-portfolio/)
+
+## Tech Stack
+
+- **React 19** + **TypeScript**
+- **Vite** (build tool)
+- **Tailwind CSS v4** (styling)
+- **Motion** (animations)
+- **Lucide React** (icons)
+- **i18n** — English / Russian language support
+
+## Features
+
+- Bilingual support (EN/RU) with instant toggle
+- Interactive hero section with mouse-reactive gradient
+- Filterable project grid (UI/UX, Branding, Graphic Design, Art)
+- Full-screen case study detail views with image galleries
+- Responsive design (mobile → desktop)
+- Smooth page transitions and scroll animations
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
+```bash
+npm install
+npm run dev
+```
 
+The dev server will start at `http://localhost:3000`.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Build for Production
+
+```bash
+npm run build
+```
+
+Output will be in the `dist/` directory.
+
+## Deployment
+
+This project is configured for automatic deployment to GitHub Pages via GitHub Actions. Any push to the `main` branch triggers a build and deploy.
+
+To enable:
+
+1. Go to repo **Settings → Pages**
+2. Under **Source**, select **GitHub Actions**
+3. Push to `main` — the workflow will build and deploy automatically
+
+## Projects
+
+- **Tipbox** — Cashless Tipping App (UI/UX)
+- **Snova Cup** — Reusable Cup System (Branding)
+- **HeyCanvas** — Branding & Website (Branding)
+- **GTrivia** — Quiz App (UI/UX)
+- **Avinext** — Logo & Brand Guidelines (Graphic Design)
+- **Art-Three** — Art for Local Bakery (Art / Illustration)
+
+## Contact
+
+- Email: [green.projecto@yandex.ru](mailto:green.projecto@yandex.ru)
+- Telegram: [@productgal](https://t.me/productgal)

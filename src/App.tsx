@@ -26,6 +26,7 @@ const projects: Project[] = [
     role: 'Lead UX/UI Designer',
     year: '2024',
     images: [
+      '/portfolio_files/Cases/Tipbox/Case-Tipbox-01.png',
       '/portfolio_files/Cases/Tipbox/Case-Tipbox-02.png',
       '/portfolio_files/Cases/Tipbox/Case-Tipbox-03.png',
       '/portfolio_files/Cases/Tipbox/Case-Tipbox-04.png',
@@ -48,6 +49,7 @@ const projects: Project[] = [
     role: 'Lead Brand & UX Designer',
     year: '2022-2023',
     images: [
+      '/portfolio_files/Cases/Snova Cup/Case-Snova-01.png',
       '/portfolio_files/Cases/Snova Cup/Case-Snova-02.png',
       '/portfolio_files/Cases/Snova Cup/Case-Snova-03.png',
       '/portfolio_files/Cases/Snova Cup/Case-Snova-04.png',
@@ -70,13 +72,13 @@ const projects: Project[] = [
     role: 'Lead Brand & UI/UX Designer',
     year: '2023',
     images: [
+      '/portfolio_files/Cases/Heycanvas/Case-HeyCanvas-01.png',
       '/portfolio_files/Cases/Heycanvas/Case-HeyCanvas-02.png',
       '/portfolio_files/Cases/Heycanvas/Case-HeyCanvas-03.png',
       '/portfolio_files/Cases/Heycanvas/Case-HeyCanvas-04.png',
       '/portfolio_files/Cases/Heycanvas/Case-HeyCanvas-05.png',
       '/portfolio_files/Cases/Heycanvas/Case-HeyCanvas-06.png',
       '/portfolio_files/Cases/Heycanvas/Case-HeyCanvas-07.png',
-      '/portfolio_files/Cases/Heycanvas/Case-HeyCanvas-08.png',
     ],
   },
   {
@@ -89,6 +91,7 @@ const projects: Project[] = [
     role: 'Lead UI/UX & Brand Designer',
     year: '2022',
     images: [
+      '/portfolio_files/Cases/GTrivia/Case-GTrivia-01.png',
       '/portfolio_files/Cases/GTrivia/Case-GTrivia-02.png',
       '/portfolio_files/Cases/GTrivia/Case-GTrivia-03.png',
       '/portfolio_files/Cases/GTrivia/Case-GTrivia-04.png',
@@ -108,6 +111,7 @@ const projects: Project[] = [
     role: 'Brand Designer',
     year: '2024',
     images: [
+      '/portfolio_files/Cases/Avinext/Avinext Branding Guidelines/Avinext Case-01.png',
       '/portfolio_files/Cases/Avinext/Avinext Branding Guidelines/Avinext Case-02.png',
       '/portfolio_files/Cases/Avinext/Avinext Branding Guidelines/Avinext Case-03.png',
       '/portfolio_files/Cases/Avinext/Avinext Branding Guidelines/Avinext Case-04.png',
@@ -134,6 +138,7 @@ const projects: Project[] = [
     role: 'Illustrator / Artist',
     year: '2025',
     images: [
+      '/portfolio_files/Cases/Art-Three/Case-Art-01.png',
       '/portfolio_files/Cases/Art-Three/Case-Art-02.png',
       '/portfolio_files/Cases/Art-Three/Case-Art-03.png',
       '/portfolio_files/Cases/Art-Three/Case-Art-04.png',
@@ -162,6 +167,7 @@ function HeroText() {
   const [isHovering, setIsHovering] = useState(false);
   const [circleRadius, setCircleRadius] = useState(0);
   const textRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!textRef.current) return;
@@ -180,6 +186,15 @@ function HeroText() {
     }
   }, [isHovering]);
 
+  // Compute gradient angle based on mouse position
+  const gradientAngle = mousePosition.x + mousePosition.y;
+  const gradientStyle = {
+    backgroundImage: `linear-gradient(${gradientAngle % 360}deg, #0FC3A6, #F78CB8, #A5E6E0, #C6E6B5, #FBC6D4, #FAF2DF)`,
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    backgroundClip: 'text',
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 40 }}
@@ -197,15 +212,19 @@ function HeroText() {
       </h1>
 
       <motion.div
-        className="absolute top-0 left-0 w-full h-full pointer-events-none"
+        className="absolute top-0 left-0 w-full h-full pointer-events-none will-change-transform"
+        style={{ transform: 'translateZ(0)' }}
         animate={{
           clipPath: `circle(${circleRadius}px at ${mousePosition.x}px ${mousePosition.y}px)`,
         }}
         transition={{ type: "tween", ease: [0.22, 1, 0.36, 1], duration: 0.5 }}
       >
-        <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-bold tracking-tighter leading-[0.9] text-white" style={{ textShadow: '0 0 2px rgba(255,255,255,0.8)' }}>
+        <h1 
+          className="text-6xl md:text-8xl lg:text-[10rem] font-bold tracking-tighter leading-[0.9]"
+          style={{ ...gradientStyle, WebkitTextStroke: '1px transparent' }}
+        >
           GRAPHIC &<br />
-          <span className="italic font-serif text-white pr-4 -mr-4">UI/UX</span> DESIGN.
+          <span className="italic font-serif pr-4 -mr-4" style={{ ...gradientStyle, WebkitTextStroke: '1px transparent' }}>UI/UX</span> DESIGN.
         </h1>
       </motion.div>
     </motion.div>
@@ -216,6 +235,7 @@ export default function App() {
   const { t, lang, setLang } = useLanguage();
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [showResumeModal, setShowResumeModal] = useState(false);
 
   const filteredProjects = projects.filter(
     (project) => activeCategory === 'All' || project.category === activeCategory
@@ -256,13 +276,19 @@ export default function App() {
             </div>
 
             <div className="max-w-7xl mx-auto px-6 md:px-10 pb-32 -mt-24">
-              {/* Gradient mood header instead of duplicate image */}
+              {/* Internal cover image */}
               <motion.div 
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className={`w-full aspect-[4/3] md:aspect-[21/9] rounded-3xl mb-16 bg-gradient-to-br ${selectedProject.gradient}`}
-              />
+                className="w-full rounded-3xl mb-16 overflow-hidden bg-gray-100"
+              >
+                <img 
+                  src={selectedProject.images[0]} 
+                  alt={`${t(selectedProject.titleKey)} cover`}
+                  className="w-full h-auto"
+                />
+              </motion.div>
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
                 <div className="lg:col-span-4">
@@ -290,7 +316,7 @@ export default function App() {
               </div>
 
               <div className="space-y-8 md:space-y-12">
-                {selectedProject.images.map((img, idx) => (
+                {selectedProject.images.slice(1).map((img, idx) => (
                   <motion.div 
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -370,7 +396,7 @@ export default function App() {
           transition={{ duration: 1, delay: 1 }}
           className="mt-auto flex justify-between items-end pb-8"
         >
-          <p className="max-w-sm text-gray-500 text-sm md:text-base font-medium">
+          <p className="max-w-sm text-gray-500 text-sm md:text-base font-medium whitespace-pre-line">
             {t('hero.tagline')}
           </p>
           <div className="hidden md:block">
@@ -446,6 +472,57 @@ export default function App() {
         </div>
       </section>
 
+      {/* Resume Modal */}
+      <AnimatePresence>
+        {showResumeModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] flex items-center justify-center p-6 bg-black/60 backdrop-blur-sm"
+            onClick={() => setShowResumeModal(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-[#1C1C1C] text-white rounded-3xl p-10 md:p-14 max-w-md w-full border border-white/10"
+            >
+              <h3 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">{t('about.resume_title')}</h3>
+              <p className="text-gray-400 text-lg mb-10">{t('about.resume_note')}</p>
+              
+              <div className="space-y-4">
+                <a
+                  href="mailto:green.projecto@yandex.ru"
+                  className="flex items-center justify-center gap-3 w-full bg-white text-[#1C1C1C] px-6 py-4 rounded-2xl text-lg font-semibold hover:bg-gray-100 transition-all"
+                >
+                  <Mail size={20} />
+                  green.projecto@yandex.ru
+                </a>
+                <a
+                  href="https://t.me/productgal"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-center gap-3 w-full bg-[#2A2A2A] text-white px-6 py-4 rounded-2xl text-lg font-semibold hover:bg-[#333333] border border-white/10 transition-all"
+                >
+                  <Send size={20} />
+                  @productgal
+                </a>
+              </div>
+
+              <button
+                onClick={() => setShowResumeModal(false)}
+                className="mt-8 w-full text-center text-gray-500 font-medium hover:text-white transition-colors"
+              >
+                {t('detail.back')}
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Expertise Section */}
       <section id="about" className="py-32 px-6 md:px-10 bg-[#1C1C1C] text-white">
         <div className="max-w-7xl mx-auto">
@@ -455,6 +532,13 @@ export default function App() {
               <p className="text-xl text-gray-400 max-w-md font-light leading-relaxed">
                 {t('about.subtitle')}
               </p>
+              <button
+                onClick={() => setShowResumeModal(true)}
+                className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white font-medium hover:bg-white hover:text-[#1C1C1C] transition-all"
+              >
+                {t('about.resume_cta')}
+                <ArrowUpRight size={16} />
+              </button>
             </div>
             <div className="grid gap-8">
               <div className="p-8 rounded-3xl bg-[#2A2A2A] border border-white/5 transition-colors hover:bg-[#333333]">
