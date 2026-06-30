@@ -4,7 +4,7 @@ A stylish, responsive portfolio website built with React, TypeScript, Tailwind C
 
 ## Live Site
 
-🌐 [thrillerqueen-sketch.github.io/alenna-s-design-portfolio](https://thrillerqueen-sketch.github.io/alenna-s-design-portfolio/)
+🌐 [alenna.top](https://alenna.top)
 
 ## Tech Stack
 
